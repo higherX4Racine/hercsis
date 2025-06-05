@@ -6,7 +6,7 @@ build-backend = "hatchling.build"
 name = "hercsis"
 version = "0.0.1"
 dependencies = [
-    "sqlalchemy >= 2.0.41"
+    "SQLAlchemy>=2.0.41"
 ]
 authors = [
     { name="Ben Taft", email="ben.taft@career2cradle.org"},
