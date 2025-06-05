@@ -9,7 +9,7 @@ class Enrollment(BaseModel):
 
     Attributes
     ----------
-    registration: Registration
+    student: student
         one person moving through an academic career
     school: School
         the authority supervising the person's education
@@ -17,15 +17,15 @@ class Enrollment(BaseModel):
 
     __tablename__ = "enrollment"
 
-    student_pk: Mapped[int] = mapped_column()
+    person_pk: Mapped[int] = mapped_column()
     district_pk: Mapped[int] = mapped_column()
-    registration: Mapped["Registration"] = relationship(foreign_keys=[student_pk, district_pk])
+    student: Mapped["Student"] = relationship(foreign_keys=[person_pk, district_pk])
 
     school_pk: Mapped[int] = mapped_column(ForeignKey("school.pk"))
     school: Mapped["School"] = relationship(foreign_keys=[school_pk])
 
     __table_args__ = (
-        PrimaryKeyConstraint("student_pk", "district_pk", "school_pk"),
-        ForeignKeyConstraint(["student_pk", "district_pk"],
-                             ["registration.student_pk", "registration.district_pk"]),
+        PrimaryKeyConstraint("person_pk", "district_pk", "school_pk"),
+        ForeignKeyConstraint(["person_pk", "district_pk"],
+                             ["student.person_pk", "student.district_pk"]),
     )

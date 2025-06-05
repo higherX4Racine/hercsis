@@ -4,12 +4,12 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from ..base import BaseModel
 
 
-class Registration(BaseModel):
+class Student(BaseModel):
     r"""One student identity for tracking through an academic career.
 
     Attributes
     ----------
-    student: Person
+    person: Person
         one person moving through an academic career
     district: District
         the authority supervising the person's education
@@ -17,11 +17,11 @@ class Registration(BaseModel):
         a unique identifier for anonymously reporting about the student 
     """
 
-    __tablename__ = "registration"
+    __tablename__ = "student"
 
-    student_pk: Mapped[int] = mapped_column(ForeignKey("person.pk"),
-                                            primary_key=True)
-    student: Mapped["Person"] = relationship()
+    person_pk: Mapped[int] = mapped_column(ForeignKey("person.pk"),
+                                           primary_key=True)
+    person: Mapped["Person"] = relationship()
 
     district_pk: Mapped[int] = mapped_column(ForeignKey("district.pk"),
                                              primary_key=True)

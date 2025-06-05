@@ -1,4 +1,4 @@
 #  Copyright (C) 2025 by Higher Expectations for Racine County
 
-from .registration import Registration
+from .student import Student
 from .enrollment import Enrollment
