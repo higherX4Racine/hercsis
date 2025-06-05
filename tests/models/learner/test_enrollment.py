@@ -1,5 +1,5 @@
 #  Copyright (C) 2025 by Higher Expectations for Racine County
-
+import pytest
 from sqlalchemy import select
 from hercsis.models.institutions import District
 from hercsis.models.learner import Enrollment, Student

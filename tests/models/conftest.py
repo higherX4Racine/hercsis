@@ -54,7 +54,7 @@ def example_districts():
             state_id=371
         ),
         District(
-            pk=53495,
+            pk=53406,
             name="Racine Unified School District",
             nickname="RUSD",
             federal_id=5512360,

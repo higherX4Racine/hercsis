@@ -2,14 +2,19 @@ from sqlalchemy import ForeignKey, ForeignKeyConstraint, PrimaryKeyConstraint
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from ..base import BaseModel
+from .student import Student
+from ..institutions import School
 
 
 class Enrollment(BaseModel):
     r"""One student identity for tracking through an academic career.
 
+    DANGER! Nothing in the ORM code currently constrains the Student's
+    District to actually match the School's District.
+
     Attributes
     ----------
-    student: student
+    student: Student
         one person moving through an academic career
     school: School
         the authority supervising the person's education
