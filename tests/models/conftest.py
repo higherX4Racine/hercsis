@@ -30,7 +30,7 @@ def db_engine(db_url):
 def db_session_factory(db_engine):
     return sessionmaker(db_engine)
 
-@pytest.fixture(scope="package")
+@pytest.fixture(scope="function")
 def example_persons():
     return [
         Person(pk=i, full_name=n)

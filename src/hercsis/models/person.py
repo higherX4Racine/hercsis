@@ -20,3 +20,9 @@ class Person(BaseModel):
 
     pk: Mapped[int] = mapped_column(primary_key=True)
     full_name: Mapped[str]
+
+    def __repr__(self) -> str:
+        return f"Person(pk={self.pk}, full_name='{self.full_name}')"
+
+    def __str__(self) -> str:
+        return self.full_name
